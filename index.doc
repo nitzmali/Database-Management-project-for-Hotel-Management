@@ -1,0 +1,6 @@
+
+<html>
+<form method="POST" action = "nits.php" method = "POST">
+   <input type = "submit" onclick="Submit()" value = "Run the Program!!!">
+</form>
+</html>
