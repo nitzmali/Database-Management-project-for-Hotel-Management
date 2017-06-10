@@ -26,8 +26,10 @@ def insertstock(db,cursor,name,age,usrtel,email):
     age = age
     usrtel = usrtel
     email= email
-    print name
-    sql = 'INSERT INTO `dbmshotel`.`dbmscustomer` VALUES("%s","%d","%s","%d")' %(name,age,usrtel,email)
+    
+    print age
+    sql = select * from dbmshotel.customer
+    #sql = 'INSERT INTO `dbmshotel`.`dbmscustomer` VALUES("%s","%d","%s","%d")' %(name,age,usrtel,email)
     #a.execute(sql)
     cursor.execute(sql)
     db.commit()

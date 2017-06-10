@@ -15,7 +15,7 @@ def htmltop():
           <body>"""
 
 def connectDB():
-    db = pymysql.connect(user='root', password='1234', host='127.0.0.1',database='dbmshotel')
+    db = pymysql.connect(user='root', password='1234', host='127.0.0.1',database='stockmarket')
     cursor = db.cursor()
     return db,cursor
 
@@ -26,8 +26,9 @@ def insertstock(db,cursor,name,age,usrtel,email):
     age = age
     usrtel = usrtel
     email= email
-    print name
-    sql = 'INSERT INTO `dbmshotel`.`dbmscustomer` VALUES("%s","%d","%s","%d")' %(name,age,usrtel,email)
+
+    #sql ='INSERT INTO `dbmshotel`.`dbmscustomer`(`dbmscustomername`,`dbmscustomerage`,`dbmscustomeremail`,`dependent`)VALUES("%s","%d","%s","%d")' %(name,age,email,dep)
+    #cursor.execute(sql)
     #a.execute(sql)
     cursor.execute(sql)
     db.commit()
@@ -60,7 +61,7 @@ if __name__=="__main__":
             #print ticker
             print "\n"
             #print exchange
-            htmltail()
+            
             db,cursor = connectDB()
             insertstock(db,cursor,name,age,usrtel,email)
 

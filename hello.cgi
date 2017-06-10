@@ -26,8 +26,8 @@ def selectstock(db,cursor,firstname):
 def displaystock(people):
     print("<table border ='1'>")
     print("<tr>")
-    print("<th>ticker</th>")
-    print("<th>exchange</th>")
+    print("<th>Room</th>")
+    print("<th>Price</th>")
     print("</tr>")
     for each in people:
         print("<tr>")
@@ -55,7 +55,7 @@ if __name__=="__main__":
             cursor.close()
             displaystock(stock)
 
-            
+
             htmltail()
         except:
             cgi_print_exception()

@@ -1,54 +1,46 @@
 #!/Python27/python
 
-
+from random import randint
 import pymysql
 import cgitb
+import time
 cgitb.enable()
 import time
+import string
+import random
+
+#start_time = time.clock()
 # connect to the database
-cnx = pymysql.connect(user='root', password='1234', host='127.0.0.1',database='stockmarket')
+cnx = pymysql.connect(user='root', password='1234', host='127.0.0.1',database='employee')
 a = cnx.cursor()
-sql = 'SELECT * from price'
-a.execute(sql)
-countrow = a.execute(sql)
+start_time = time.clock()
+print start_time
+for i in range (100,100000):
+    stock = "BDM"
+    #v1 = randint(1,100)
+    #sql = 'INSERT INTO `employee`.`nitin`(`idnitin`) VALUES(%d)' %(int(v1))
+    #sql = 'INSERT INTO `employee`.`nitin`(`idnitin`) VALUES((FLOOR(100+ (RAND() * 20))))'
+    #sql = 'INSERT INTO `employee`.`nits` VALUES("%s","%s")' %("name"+str(i),"name"+str(i))
+    #sql1 = 'INSERT INTO `employee`.`nits` VALUES("%s","%s")' %(str(stock)+str(i),str(stock)+str(i))
+    #sql3 = 'INSERT INTO `employee`.`ids` VALUES("%s","%s","%s","%s","%s")' %(i,i*10,str(stock)+str(i),str(stock)+str(i),str(stock)+str(i))
+    sql4 = 'select * from ids where id=606'
+    #a.execute(sql)
+    a.execute(sql4)
+
+print str(stock)
+#countrow = a.execute(sql)
+cnx.commit()
+#N=2
+#print ''.join(random.choice(string.ascii_uppercase) for _ in range(N))
 #print(countrow)
 data = a.fetchall()
 
-desc = a.description
-leng = len(desc)
-print leng
-rowcoun = a.rowcount
-print countrow
-i = 0
-while i<leng:
-    print "%s" % desc[i][0],
+print time.clock()
+print time.clock() - start_time, "seconds"
+#time.sleep(5)
+#start_time = time.clock()
 
-
-    i = i+1
-print "\n"
-#for idx,row in enumerate(data):
-    #print(row)
-for row in data:
-    i=0
-    #k=0
-    #while j<leng:
-        #print("\t")
-    while(i<leng-1):
-        #if leng==2:
-        print "%s %s %s" %row
-            #print row[i+1]
-        i = i+1
-        #elif leng==3:
-            #print row[i],
-            #print row[i+1],
-            #print row[i+2]
-            #i = i+1
-
-
-        #j = j+1
-    #while i<1:
-        #print "%s %s" % (desc[0][0],desc[1][0])
-
-        #print "%s" % row[i]
-        #i = i+1
-        #j = j+1
+#print time.clock() - start_time, "seconds"
+#desc = a.description
+#leng = len(desc)
+#print leng
